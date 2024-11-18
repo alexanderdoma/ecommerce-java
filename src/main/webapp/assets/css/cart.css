@@ -1,0 +1,98 @@
+img {
+    object-fit: cover;
+    object-position: center center;
+}
+
+.link {
+    color: rgb(18, 18, 18);
+    font-size: 14px;
+}
+
+.auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+    grid-gap: 1rem;
+}
+
+
+.image-left-collage {
+    max-width: 100%;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.hover-zoom {
+    transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover {
+    transform: scale(0.9);
+}
+
+.derechos {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.titulo {
+    margin-top: 400px;
+}
+
+.productos {
+    margin-top: 250px;
+}
+
+/* Estilos carrito */
+.cart-table img {
+    width: 70px;
+    height: auto;
+}
+
+.cart-table {
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+.cart-table th,
+.cart-table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.product-name {
+    text-align: left;
+    font-weight: bold;
+}
+
+.product-details {
+    font-size: 14px;
+    color: gray;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+}
+
+.qty-control input {
+    width: 50px;
+    text-align: center;
+}
+
+.qty-control button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: black;
+}
+
+.continue-shopping {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.continue-shopping a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
