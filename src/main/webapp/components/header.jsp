@@ -14,8 +14,9 @@
                     <a class="d-flex gap-2 text-decoration-none text-dark" href="<%= request.getContextPath()%>">PERÚ INOLVIDABLE</a>
                 </div>
                 <div class="col d-flex justify-content-end align-items-center gap-4">
-                    <a href="<%=request.getContextPath() + "/cart"%>" class="text-secondary">
+                    <a href="<%=request.getContextPath() + "/cart"%>" class="text-secondary text-decoration-none">
                         <i class="fa-solid fa-cart-shopping"></i>
+                        <small> <c:if test="${orderlines.size() > 0}">${orderlines.size()}</c:if> </small>
                     </a>
                     <a href="<%=request.getContextPath() + "/orders"%>" class="text-secondary">
                         <i class="fa-solid fa-file-circle-check"></i>

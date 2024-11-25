@@ -25,5 +25,7 @@
         <url-pattern>/admin/product</url-pattern>
         <url-pattern>/admin/categories</url-pattern>
         <url-pattern>/admin/category</url-pattern>
+        <url-pattern>/admin/sales</url-pattern>
+        <url-pattern>/admin/sale</url-pattern>
     </filter-mapping>
 </web-app>

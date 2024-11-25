@@ -8,7 +8,7 @@ build/
 !**/src/test/**/build/
 nb-configuration.xml
 target/
-src/main/resources/keys
+src/main/resources/keys/*.properties
 
 .vscode/*
 !.vscode/settings.json

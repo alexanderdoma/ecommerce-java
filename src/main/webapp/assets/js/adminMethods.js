@@ -14,6 +14,7 @@ function singin(){
         .then(data => {
             if(data.type === 'success'){
                 showToast(data.type, data.tittle, data.message);
+                formEle.removeEventListener('submit', arguments.callee);
                 setTimeout(() => {
                     window.location.href = "/peruinolvidable/admin/dashboard";
                 }, 1000);
@@ -24,7 +25,7 @@ function singin(){
 
         })
         .catch(error => {
-            showToast('error', 'Error al iniciar sesión');
+            showToast('error', 'Error al iniciar sesión', error);
             console.error('Error:', error);
         });
     });
