@@ -1,4 +1,4 @@
-    package com.alexanderdoma.peruinolvidable.controllers;
+package com.alexanderdoma.peruinolvidable.controllers;
 
 import com.alexanderdoma.peruinolvidable.model.DAOException;
 import com.alexanderdoma.peruinolvidable.model.entity.Order;
@@ -136,10 +136,12 @@ public class PaymentServlet extends HttpServlet {
             Payment payment = paymentServices.executePayment(paymentId, payerId);
             PayerInfo payerInfo = payment.getPayer().getPayerInfo();
             Transaction transaction = payment.getTransactions().get(0);
+            int user_id = (int) request.getSession().getAttribute("user_id");
+            User objUser =  new UserDAO().getById(user_id);
             request.setAttribute("payer", payerInfo);
             request.setAttribute("transaction", transaction);
             createOrder(request);
-            sendEmailNotification("Pedido generado correctamente");
+            sendEmailNotification(objUser.getEmail(), "Pedido generado correctamente");
             request.getRequestDispatcher("receipt.jsp").forward(request, response);
         } catch (DAOException | PayPalRESTException ex) {
             request.getRequestDispatcher("error.jsp").forward(request, response);
@@ -206,12 +208,12 @@ public class PaymentServlet extends HttpServlet {
         return orderlines;
     }
     
-    private void sendEmailNotification(String message){
+    private void sendEmailNotification(String user_email, String message){
         Resend resend = new Resend(ResendKeysManager.getProperty("CLIENT.ID"));
 
         CreateEmailOptions params = CreateEmailOptions.builder()
                 .from("Perú Inolvidable <onboarding@resend.dev>")
-                .to("alexanderdoma.personal@gmail.com")
+                .to(user_email)
                 .subject("Hubo una modificación en tu pedido")
                 .html("<strong>" + message + "</strong>")
                 .build();
